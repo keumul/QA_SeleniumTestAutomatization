@@ -16,9 +16,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import support.Generator;
-import support.Screenshot;
 import support.Web;
+
+import java.time.Duration;
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "InsertNewInformationTest.csv")
@@ -71,12 +71,12 @@ public class InsertNewInformationTest {
 	public void DeleteContactFromUser() {
 		controller.findElement(By.xpath("//span[text()=\"+123456789100\"]/following-sibling::a")).click();
 		controller.switchTo().alert().accept();
-		
+
 		WebElement msgContainer = controller.findElement(By.id("toast-container"));
 		String msg = msgContainer.getText();
 		assertEquals("AHAHAAHA, phone number is dead!", msg);
 
-		WebDriverWait wait = new WebDriverWait(controller, 10);
+		WebDriverWait wait = new WebDriverWait(controller, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.stalenessOf(msgContainer));
 
 		controller.findElement(By.linkText("Logout")).click();

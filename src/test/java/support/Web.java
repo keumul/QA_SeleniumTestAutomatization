@@ -8,12 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Web {
 	
 	public static WebDriver createWebDriver() {
-		System.setProperty("webdriver.chrome.driver", "/Users/jonatanjosesoares/drivers/chromedriver");
-		WebDriver navegador = new ChromeDriver();
-		navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		navegador.get("http://www.juliodelima.com.br/taskit");
+		System.setProperty("webdriver.chrome.driver", "D:/WebDriver/chromedriver.exe");
+		WebDriver controller = new ChromeDriver();
+		controller.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		controller.get("http://www.juliodelima.com.br/taskit");
 		
-		return navegador;
+		return controller;
 	}
 
 }
